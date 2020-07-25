@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:xamarin.Effects"
+             x:Class="xamarin.Views.Product.AddProductImage">
+    <ContentPage.Content>
+        <StackLayout Spacing="10"  VerticalOptions="StartAndExpand" Margin="20" >
+            
+            
+            
+
+            
+            
+
+            <Entry x:Name="ImageUpload" Margin="20,0,20,0" IsVisible="False"
+                   HeightRequest="50">
+                <Entry.Effects>
+                    <local:BackgroundEntryEffect/>
+                </Entry.Effects>
+            </Entry>
+            <Button Text="Select Picture" Style="{StaticResource PrimaryBtn}" Clicked="SelectImageButtonClicked"/>
+
+            
+            
+            
+            <Image x:Name="selectedImage"  Aspect="Fill" HeightRequest="200"/>
+            
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

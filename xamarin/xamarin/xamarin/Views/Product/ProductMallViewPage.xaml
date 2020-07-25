@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"             
+             xmlns:vm="clr-namespace:xamarin.ViewModels"
+             xmlns:templates="clr-namespace:xamarin.Views.Templates"
+             xmlns:videoplayer="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
+             mc:Ignorable="d"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="xamarin.Views.Product.ProductMallViewPage"            
+             Title="Products"            
+            >
+
+
+    
+    
+    
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <DataTemplate x:Key="DataTemplate">
+                <!--<templates:ProductDataTemplate />-->
+                <templates:DataTemplate/>
+            </DataTemplate>
+
+        </ResourceDictionary>
+
+        <Style x:Key="SubTitleStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource PoppinsSemiBold}" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+            <Setter Property="Margin" Value="12, 0" />
+        </Style>
+
+        <Style x:Key="DateStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource PoppinsMedium}" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+            <Setter Property="Margin" Value="12, 12, 0, 0" />
+        </Style>
+
+        <Style x:Key="PostTitleStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource PoppinsSemiBold}" />
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="WidthRequest" Value="100" />
+            <Setter Property="Margin" Value="12, 12, 12, 6" />
+        </Style>
+
+        <Style x:Key="PostDateStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource PoppinsMedium}" />
+            <Setter Property="FontSize" Value="8" />
+            <Setter Property="TextColor" Value="{StaticResource BlackColor}" />
+            <Setter Property="Margin" Value="12, 0, 12, 12" />
+        </Style>
+
+        <Style x:Key="FilterStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource PoppinsRegular}" />
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="TextColor" Value="#606467" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="Margin" Value="0, 18" />
+        </Style>
+
+        <Style x:Key="SelectedFilterStyle" TargetType="Label" BasedOn="{StaticResource FilterStyle}">
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+        </Style>
+
+
+    </ContentPage.Resources>
+    
+    
+
+    <ContentPage.Content>
+        <!-- MAIN CONTENT PANEL -->
+
+
+        
+        <CollectionView  
+                    SelectionChanged="CollectionItem_SelectionChanged"                     
+                    x:Name="CollectionItem"                    
+                    ItemTemplate="{StaticResource DataTemplate}"
+                    SelectionMode="Single"                   
+                    >
+            <CollectionView.Header>
+
+                <StackLayout >
+                    <!-- The search bar -->                    
+                     <!--<SearchBar Placeholder="Search" BackgroundColor="{StaticResource Primary}" TextColor="White" PlaceholderColor="White" />-->
+                    
+                    
+                    <Grid >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.Row="0" Grid.Column="0" Source="Banner.jpg"  HorizontalOptions="FillAndExpand"
+                                           VerticalOptions="FillAndExpand" Aspect="AspectFill" />
+
+                        <Label Grid.Row="0" Grid.Column="0" Text="All you need is love. But a little chocolate now and then doesn't hurt.." HorizontalOptions="EndAndExpand" VerticalOptions="End" TextColor="{StaticResource WhiteColor}"
+                            BackgroundColor="{StaticResource Primary}" Padding="0,0,5,0" Margin="5,5,5,5" Style="{StaticResource TitleStyle}" />
+
+
+
+                    </Grid>
+
+                    <!-- BACKGROUND GRADIENT -->
+                    <pancakeview:PancakeView
+                BackgroundGradientAngle="180"
+                BackgroundGradientStartColor="Black"
+                BackgroundGradientEndColor="Transparent"/>
+
+
+
+
+
+                </StackLayout>
+
+
+            </CollectionView.Header>
+
+
+            <CollectionView.ItemsLayout >
+                <GridItemsLayout  
+                            Orientation="Vertical"
+                            Span="2" />
+            </CollectionView.ItemsLayout>
+
+        </CollectionView>
+    </ContentPage.Content>
+              
+            
+            
+                
+
+                     
+                
+           
+            
+            
+            
+        
+    
+</ContentPage>

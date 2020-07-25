@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             x:Class="xamarin.Views.Templates.DataTemplate">
+    <ContentView.Content >
+        <Grid           
+            BackgroundColor="{StaticResource WhiteSmoke}"
+            >
+            <Grid 
+                BackgroundColor="{StaticResource WhiteColor}"
+                Margin="12, 10, 12, 0"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="220" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+
+                <pancakeview:PancakeView
+                Grid.Row="0"         
+                CornerRadius="2"               
+                HasShadow="True"
+                BorderThickness="0">
+                    <ffimageloading:CachedImage
+                        Aspect="AspectFill"
+                        
+                        Source="{Binding ImageUrl}"/>
+                </pancakeview:PancakeView>
+                <Label
+                Grid.Row="1"
+                 Margin=" 5,5"
+                Text="{Binding Name}"
+                Style="{StaticResource TitleStyle}"/>
+                <Label
+                Grid.Row="2"                
+                Margin=" 8,5"
+                Text="{Binding Price, StringFormat='{0:C0}'}"                
+                Style="{StaticResource SubTitleStyle}"/>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

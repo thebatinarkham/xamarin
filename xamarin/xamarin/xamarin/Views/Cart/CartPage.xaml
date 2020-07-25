@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="xamarin.Views.Cart.CartPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <Label Text="Total Price" TextColor="{StaticResource WhiteColor}" BackgroundColor="{StaticResource Primary}" FontSize="Large" Padding="10,5"/>
+            <Label 
+                   x:Name="cartTotal"
+                   TextColor="{StaticResource WhiteColor}" BackgroundColor="{StaticResource Primary}" Padding="15,10,15,25" FontSize="20"/>
+            
+
+
+            <ListView x:Name="ProductView"  HasUnevenRows="true" SeparatorVisibility="None" SelectionMode="None" HorizontalScrollBarVisibility="Always" BindingContext="products" >
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    
+                                </Grid.ColumnDefinitions>
+                                <pancakeview:PancakeView Grid.Column="0" CornerRadius="36" VerticalOptions="Start"
+                                    HeightRequest="60"  WidthRequest="60" Margin="24, 6, 24, 0" BackgroundColor="{StaticResource Primary}">
+                                    <Image Grid.RowSpan="2"  Source="{Binding ImageUrl}"  Aspect="AspectFill" HeightRequest="60"   WidthRequest="60" />
+                                </pancakeview:PancakeView>
+
+
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" FontAttributes="Bold" />
+                                <Label Grid.Column="2" Grid.Row="0"  Text="{Binding Quantity,StringFormat='{0} x'}" FontAttributes="Bold" />
+                                <Label Grid.Column="3" Grid.Row="0"  Text="{Binding Price,StringFormat='${0} ='}" FontAttributes="Bold" />
+                                <Label Grid.Column="4" Grid.Row="0"  Text="{Binding Amount,StringFormat='${0}'}" FontAttributes="Bold" />
+
+
+
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Style="{StaticResource StickyBlueButton}" Text="Proceed to pay" Clicked="PaymentBtn_Clicked"/>
+            <!--<Grid  ColumnSpacing="0" BackgroundColor="Black">
+            
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="90" />
+                </Grid.ColumnDefinitions>
+                <pancakeview:PancakeView Grid.Column="0" CornerRadius="36" VerticalOptions="Start"
+                HeightRequest="40"  WidthRequest="40" Margin="24, 6, 24, 0" BackgroundColor="{StaticResource Primary}">
+                    <Image Aspect="Fill" Source="delivered.png"/>
+                </pancakeview:PancakeView>
+                
+                <StackLayout Grid.Column="1" Margin="0, 12, 0, 0">
+                    <Label Text="Delivery"/>
+                    <Label Text="Free Distribution for More than 50 Dollars"/>
+                    <Grid>
+                        <Grid HeightRequest="2" BackgroundColor="{StaticResource Primary}" Margin="6, 0"/>
+                        <Grid HeightRequest="2" BackgroundColor="Gray"  Margin="6, 0, 36, 0"/>
+                    </Grid>
+                </StackLayout>
+                
+            </Grid>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

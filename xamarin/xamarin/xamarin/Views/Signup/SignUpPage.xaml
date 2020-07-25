@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:xamarin.Controls"
+             mc:Ignorable="d"
+             Visual="Material"
+             x:Class="xamarin.Views.Signup.SignUpPage"
+             xmlns:local="clr-namespace:xamarin.Effects">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+
+            
+            <StackLayout Spacing="10" >
+                <Label HeightRequest="100"  
+                          HorizontalOptions="FillAndExpand" 
+                          Text="Create New Account" 
+                          BackgroundColor="{StaticResource Primary}"
+                          TextColor="White" 
+                          FontSize="32" 
+                          
+                          HorizontalTextAlignment="Center"
+                          VerticalTextAlignment="Center"/>
+
+                <StackLayout Orientation="Horizontal" Padding="20,40,20,0">
+
+
+
+
+                    <Label FontSize="Small" HorizontalOptions="FillAndExpand"/>
+                    
+                    <Entry HeightRequest="50" 
+                         HorizontalOptions="FillAndExpand"
+                         Placeholder="First Name"
+                           x:Name="firstNameEntry"
+                           Text="Ra">
+                        <Entry.Effects>
+                            <local:BackgroundEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+
+                    <Label FontSize="Small" HorizontalOptions="FillAndExpand"/>
+                    <Entry HeightRequest="50" 
+                                  HorizontalOptions="FillAndExpand"
+                                 Placeholder="Last Name"
+                           x:Name="lastNameEntry"
+                           Text="Jinu">
+                        <Entry.Effects>
+                            <local:BackgroundEntryEffect />
+                        </Entry.Effects>
+                    </Entry>
+                </StackLayout>
+
+                <Label FontSize="Small"  Margin="20,0,20,0" />
+                <Entry  Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         Placeholder="Email"
+                        x:Name="emailEntry"
+                        Text="Ranitin22@gmail.com">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+                <Label FontSize="Small" Text="Password" Margin="20,0,20,0" />
+                <Entry Margin="20,0,20,0" 
+                        HeightRequest="50" IsPassword="true"
+                        Placeholder="Password" 
+                       x:Name="passwordEntry"
+                       
+                       Text="Pass">
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+                
+                <Label FontSize="Small" Text="Confirm Password" Margin="20,0,20,0" />
+                <Entry Margin="20,0,20,0" 
+                        HeightRequest="50" IsPassword="true"
+                        Placeholder="Confirm Password" x:Name="confirmPasswordEntry" >
+                    <Entry.Effects>
+                        <local:BackgroundEntryEffect />
+                    </Entry.Effects>
+                </Entry>
+
+                <Button Margin="20,0,20,0" 
+                         HeightRequest="50" 
+                         TextColor="White" 
+                         Text="Sign up for Free"  
+                         BackgroundColor="Gray"
+                         HorizontalOptions="FillAndExpand"
+                        Clicked="Button_Clicked"/>
+
+                <Button Margin="0,0,0,0" 
+                         
+                         TextColor="DodgerBlue" 
+                         Text="I have an account"  Clicked="NavigateLogin_Clicked"
+                         BackgroundColor="Transparent"
+                        BorderColor="Transparent"
+                        HorizontalOptions="Center"
+                        
+                        />
+
+                <Label FontSize="Small" Text=" - By clicking Signup, I agree to the Terms of Service and Privacy Policy" Margin="20,0,20,0" />
+
+                <!--<Label Margin="0,0,0,20" Text="I have an account" VerticalOptions="EndAndExpand"
+                        HorizontalOptions="Center" 
+                        TextColor="{StaticResource Primary}"/>-->
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+    
+</ContentPage>

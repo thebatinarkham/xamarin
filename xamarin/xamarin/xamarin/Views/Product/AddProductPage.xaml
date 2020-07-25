@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:xamarin.Effects"                        
+             x:Class="xamarin.Views.Product.AddProductPage"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             Title="INCLUDE PRODUCT DETAILS"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
+
+
+
+
+    <ContentPage.Content>
+        <StackLayout Spacing="10"  VerticalOptions="StartAndExpand" >
+
+            
+
+            <Label FontSize="Small" Text="Title *" Margin="20,20,20,0" />
+            <Entry  Style="{StaticResource EntryField}"
+                         Placeholder="Product's Name"
+                         x:Name="ProductName"
+                           
+                        ClearButtonVisibility="WhileEditing"
+                    Text="{Binding Name}"
+                    >
+                <Entry.Effects>
+                    <local:BackgroundEntryEffect />
+                </Entry.Effects>
+            </Entry>
+
+            <Entry  Style="{StaticResource EntryField}"
+                    Keyboard="Numeric"
+                         Placeholder="Product's Price"
+                    Text="{Binding Price}"
+                         x:Name="ProductPrice">
+                <Entry.Effects>
+                    <local:BackgroundEntryEffect />
+                </Entry.Effects>
+            </Entry>
+
+            <Label FontSize="Small" Text="Describe what your selling" Margin="20,0,20,0" />
+            <Entry  Style="{StaticResource EntryField}"
+                    Keyboard="Default"
+                    Placeholder="Description"                  
+                    Text="{Binding Description}"
+                    x:Name="ProductDes">
+                <Entry.Effects>
+                    <local:BackgroundEntryEffect />
+                </Entry.Effects>
+            </Entry>
+
+            <Label FontSize="Small" Text="Location" Margin="20,0,20,0" />
+            <Entry  Style="{StaticResource EntryField}"
+                    Keyboard="Default"
+                         Placeholder="Location"
+                        Text="{Binding Location}"
+                         x:Name="Location">
+                <Entry.Effects>
+                    <local:BackgroundEntryEffect />
+                </Entry.Effects>
+            </Entry>
+
+            <Picker x:Name="ProductCategoryPicker" HorizontalOptions="FillAndExpand " Margin="20,0,20,0" 
+                    TitleColor="Black"
+                    SelectedItem="{Binding Category}"
+                    HeightRequest="50" Title="Category" >
+                <Picker.Items >
+                    <x:String>Fruits</x:String>
+                    <x:String>Vegetable</x:String>
+                </Picker.Items>
+            </Picker>
+
+            
+
+            <Image x:Name="HiddenImage" Source="{Binding ImageUrl}"  Aspect="Fill" HeightRequest="200" IsVisible="False"/>
+
+            <Label  Margin="20,0,20,50" VerticalOptions="EndAndExpand"  FontSize = "Small" Text="*Required Fields." TextColor="{d:StaticResource Primary}"/>
+
+            <Button Style="{StaticResource StickyBlueButton}" Text="Save Product" Clicked="NavToProImage_Clicked"/>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
